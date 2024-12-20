@@ -10,6 +10,8 @@ export const ProductList = ({
 	total,
 	setTotal,
 }) => {
+	const [ready, setReady] = useState(false)
+
 	const onAddProduct = product => {
 		if (allProducts.find(item => item.id === product.id)) {
 			const products = allProducts.map(item =>
@@ -27,37 +29,19 @@ export const ProductList = ({
 		setAllProducts([...allProducts, product]);
 	};
 
-	const [items, setItems] = useState([])
-	const [ready, setReady] = useState (false)
-
-
-	const db = getFirestore();
-
-useEffect(() => {
-	getDocs(collection(db, "items")).then(querySnapshot => { 
-		setItems(querySnapshot)
-		setReady(true)
-	} )
-	.catch(error => {
-		console.log (error);
-		setReady(true)
- 	})
-}, []) 
-
-
-
-
 
 	return (
 		<div className='container-items'>
-			{items.map(product => (
+			{allProducts.map(product => (
 				<div className='item' key={product.id}>
-					<figure>
-						<img src={product.img} alt={product.nameProduct} />
+					<figure>	
+						<img src={`/images/${product.imageUrl}`} alt={product.nameProduct} />
 					</figure>
 					<div className='info-product'>
-						<h2>{product.nameProduct}</h2>
+						<h2>{product.title}</h2>
 						<p className='price'>${product.price}</p>
+						<p>{product.descripcion}</p>
+						<p>Stock: {product.stock}</p>
 						<button onClick={() => onAddProduct(product)}>
 							Añadir al carrito
 						</button>

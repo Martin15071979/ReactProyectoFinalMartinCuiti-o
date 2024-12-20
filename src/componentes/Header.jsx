@@ -55,9 +55,8 @@ export const Header = ({
 				</div>
 
 				<div
-					className={`container-cart-products ${
-						active ? '' : 'hidden-cart'
-					}`}
+					className={`container-cart-products ${active ? '' : 'hidden-cart'
+						}`}
 				>
 					{allProducts.length ? (
 						<>
