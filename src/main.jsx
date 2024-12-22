@@ -2,6 +2,8 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
+import "bootstrap/dist/css/bootstrap.min.css";
+
 
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";

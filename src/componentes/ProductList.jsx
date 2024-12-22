@@ -1,6 +1,4 @@
-import { useEffect, useState } from 'react';
-import { productosJoyería } from '../data';
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { Product } from './Product';
 
 export const ProductList = ({
 	allProducts,
@@ -10,7 +8,6 @@ export const ProductList = ({
 	total,
 	setTotal,
 }) => {
-	const [ready, setReady] = useState(false)
 
 	const onAddProduct = product => {
 		if (allProducts.find(item => item.id === product.id)) {
@@ -33,19 +30,14 @@ export const ProductList = ({
 	return (
 		<div className='container-items'>
 			{allProducts.map(product => (
-				<div className='item' key={product.id}>
-					<figure>	
-						<img src={`/images/${product.imageUrl}`} alt={product.nameProduct} />
-					</figure>
-					<div className='info-product'>
-						<h2>{product.title}</h2>
-						<p className='price'>${product.price}</p>
-						<p>{product.descripcion}</p>
-						<p>Stock: {product.stock}</p>
-						<button onClick={() => onAddProduct(product)}>
-							Añadir al carrito
-						</button>
-					</div>
+        		<div className='item' key={product.id}>
+				<Product
+				imageUrl = {product.imageUrl}
+				name = {product.productName}
+				title= {product.title}
+				price = {product.price}
+				onAddProduct = {onAddProduct}
+				/>
 				</div>
 			))}
 		</div>
