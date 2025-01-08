@@ -16,7 +16,7 @@ function App() {
 	return (
 		<>
 		<Provider>
-			<BrowserRouter>
+			<BrowserRouter basename='/ReactProyectoFinalMartinCuitino/'>
 				<Header
 					allProducts={allProducts}
 					setAllProducts={setAllProducts}
