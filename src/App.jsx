@@ -1,9 +1,12 @@
 import { useState, useEffect } from 'react';
 import { doc, getDoc, query, getFirestore, collection, getDocs } from "firebase/firestore";
-import { Header } from './componentes/Header';
-import ProductListContainer from './componentes/ProductListContainer'
+import { Header } from './components/Header';
+import ProductListContainer from './components/ProductListContainer'
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import NotFound from './componentes/NotFound';
+import NotFound from './components/NotFound';
+import { ProductDetailContainer } from './components/ProductDetailContainer';
+import { Provider } from './context/ProductsContext';
+import { CheckoutContainer } from './components/CheckoutContainer';
 
 function App() {
 	const [allProducts, setAllProducts] = useState([]);
@@ -12,6 +15,7 @@ function App() {
 
 	return (
 		<>
+		<Provider>
 			<BrowserRouter>
 				<Header
 					allProducts={allProducts}
@@ -24,11 +28,13 @@ function App() {
 				<Routes>
 					<Route path="/" element={<ProductListContainer />} />
 					<Route path="/category/:id" element={<ProductListContainer />} />
-					<Route path="/items/:id" element={<div>Detalle</div>} />
-					<Route path="/checkout" element={<div>Checkout</div>} />
+					<Route path="/items/:id" element={<ProductDetailContainer/>} />
+					<Route path="/checkout" element={<CheckoutContainer/>} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</BrowserRouter>
+
+		</Provider>
 		</>
 	);
 }

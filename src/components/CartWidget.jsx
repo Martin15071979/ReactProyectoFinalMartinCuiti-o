@@ -1,11 +1,12 @@
 import carrito from "../assets/cart.svg";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-// import { ItemsContext } from "../contexts/ItemsContext";
-
+import {ProductsContext} from '../context/ProductsContext'
 export const CartWidget = () => {
 
-//   const totalItems = items.reduce((acc, item) => acc + item.quantity, 0);
+  const { items } = useContext(ProductsContext);
+
+  const totalItems = items.reduce((acc, item) => acc + item.quantity, 0);
 
   return (
     <>
@@ -16,7 +17,7 @@ export const CartWidget = () => {
           style={{ width: "30px", height: "auto" }}
         />
 
-        { <span>{0}</span>}
+        { <span>{totalItems}</span>}
       </Link>
     </>
   );

@@ -1,9 +1,11 @@
+import { Link } from "react-router"
+
 export const Product = ({
+    id,
     imageUrl,
     name,
     title,
     price,
-    onAddProduct
 }) => {
 
     return (
@@ -14,10 +16,12 @@ export const Product = ({
             <div className='info-product'>
                 <h2>{title}</h2>
                 <p className='price'>${price}</p>
-                <button onClick={() => onAddProduct(product)}>
-                    Añadir al carrito
+                <Link to={`/items/${id}`}>
+                <button >
+                    Ver más
                 </button>
-            </div>
+                </Link>
+            </div> 
         </div>
     )
 }
