@@ -10,14 +10,14 @@ export const CartWidget = () => {
 
   return (
     <>
-      <Link to="/checkout">
+      <Link to="/cart">
         <img
           className="imgCarrito"
           src={carrito}
           style={{ width: "30px", height: "auto" }}
         />
 
-        { <span>{totalItems}</span>}
+        { <span>{totalItems> 0 && totalItems}</span>}
       </Link>
     </>
   );

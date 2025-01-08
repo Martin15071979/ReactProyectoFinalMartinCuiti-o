@@ -4,6 +4,7 @@ import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { ProductDetail } from "./ProductDetail";
 import { useContext } from "react";
 import { ProductsContext } from '../context/ProductsContext'
+import NotFound from "./NotFound";
 
 export const ProductDetailContainer = () => {
     const [item, setItem] = useState({});
@@ -36,21 +37,26 @@ export const ProductDetailContainer = () => {
 
     return (
         <div>
-            <ProductDetail
-                categoryId={item.categoryId}
-                imageUrl={item.imageUrl}
-                title={item.title}
-                price={item.price}
-                description={item.descripcion}
-                stock={item.stock}
-                handleAddToCart={handleAddToCart}
-
-            />
-            {error && (
-                <div style={{ color: 'red', marginTop: '10px' }}>
-                    {error}
+            {item && !loading && Object.keys(item).length > 1 ? (
+                <div>
+                    <ProductDetail
+                        categoryId={item.categoryId}
+                        imageUrl={item.imageUrl}
+                        title={item.title}
+                        price={item.price}
+                        description={item.descripcion}
+                        stock={item.stock}
+                        handleAddToCart={handleAddToCart}
+                    />
+                    {error && (
+                        <div style={{ color: 'red', marginTop: '10px' }}>
+                            {error}
+                        </div>
+                    )}
                 </div>
+            ) : (
+                !loading  && <NotFound />
             )}
         </div>
-    )
+    );
 }
