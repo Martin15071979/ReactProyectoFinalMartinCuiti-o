@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { doc, getDoc, query, getFirestore, collection, getDocs } from "firebase/firestore";
 import { Header } from './components/Header';
 import ProductListContainer from './components/ProductListContainer'
-import { HashRouHashRouter, ter, Route, Routes } from "react-router-dom";
+import { HashRouter, Route, Routes } from "react-router-dom";
 import NotFound from './components/NotFound';
 import { ProductDetailContainer } from './components/ProductDetailContainer';
 import { Provider } from './context/ProductsContext';
