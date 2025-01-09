@@ -11,7 +11,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist"
   },
-  "homepage": "https://martin15071979.github.io/ReactProyectoFinalMartinCuitino/",
+  "homepage": "https://martin15071979.github.io/ReactProyectoFinalMartinCuitino",
   "dependencies": {
     "bootstrap": "^5.3.3",
     "react": "^18.3.1",
