@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { doc, getDoc, query, getFirestore, collection, getDocs } from "firebase/firestore";
 import { Header } from './components/Header';
 import ProductListContainer from './components/ProductListContainer'
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { HashRouHashRouter, ter, Route, Routes } from "react-router-dom";
 import NotFound from './components/NotFound';
 import { ProductDetailContainer } from './components/ProductDetailContainer';
 import { Provider } from './context/ProductsContext';
@@ -16,7 +16,7 @@ function App() {
 	return (
 		<>
 		<Provider>
-			<BrowserRouter basename='/ReactProyectoFinalMartinCuitino/'>
+			<HashRouter basename='/ReactProyectoFinalMartinCuitino/'>
 				<Header
 					allProducts={allProducts}
 					setAllProducts={setAllProducts}
@@ -32,7 +32,7 @@ function App() {
 					<Route path="/cart" element={<CheckoutContainer/>} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
-			</BrowserRouter>
+			</HashRouter>
 
 		</Provider>
 		</>
