@@ -30,7 +30,7 @@ function App() {
 					<Route path="/category/:id" element={<ProductListContainer />} />
 					<Route path="/items/:id" element={<ProductDetailContainer/>} />
 					<Route path="/cart" element={<CheckoutContainer/>} />
-					<Route path="*" element={<NotFound />} />
+					{/* <Route path="*" element={<NotFound />} /> */}
 				</Routes>
 			</HashRouter>
 
