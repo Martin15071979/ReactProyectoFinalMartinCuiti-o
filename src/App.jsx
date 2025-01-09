@@ -16,7 +16,7 @@ function App() {
 	return (
 		<>
 		<Provider>
-			<BrowserRouter basename='/'>
+			<BrowserRouter>
 				<Header
 					allProducts={allProducts}
 					setAllProducts={setAllProducts}
