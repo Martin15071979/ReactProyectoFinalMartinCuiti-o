@@ -15,7 +15,7 @@ export const ProductDetail = ({
                 <p>Category: {categoryId}</p>
             </div>
             <figure className="image">
-                <img src={`/images/${imageUrl}`} alt={title} />
+                <img src={`images/${imageUrl}`} alt={title} />
             </figure>
             <div className='info-product'>
                 <h2>{title}</h2>

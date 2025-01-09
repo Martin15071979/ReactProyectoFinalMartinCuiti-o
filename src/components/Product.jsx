@@ -11,7 +11,7 @@ export const Product = ({
     return (
         <div>
             <figure>
-                <img src={`/images/${imageUrl}`} alt={name} />
+                <img src={`images/${imageUrl}`} alt={name} />
             </figure>
             <div className='info-product'>
                 <h2>{title}</h2>
